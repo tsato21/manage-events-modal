@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <p><?= guest_name ?>さんへ</p>
+    下記日時でイベントを作成し、Google Calendarに反映しました。
+    <br>
+    ご自身のGoogle Calendarをご確認ください。
+    <p><strong>【対象日時】</strong></p>
+    <ul>
+    <? for(let i=0; i<schedules.length; i++) { ?>
+      <li><?= schedules[i] ?></li>
+    <? } ?>
+    </ul>
+    佐藤
+  </body>
+</html>

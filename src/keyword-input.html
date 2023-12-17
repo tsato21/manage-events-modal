@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <form onsubmit="send_keyword(); return false;">
+    <div>
+      <label for="period">Period of Search</label>
+      <select id = "period">
+        <option disabled selected value="365">Select</option>
+        <option value="365">One Year</option>
+        <option value="30">One Month</option>
+        <option value="7">One Week</option>
+      </select>
+    </div>
+    <div>
+      <label for="keyword">Keyword:</label>
+      <input type="text" id="keyword">
+    </div>
+    <button type="submit">Submit</button>
+    </form>
+    <script>
+      function send_keyword() {
+        let period = document.getElementById('period').value;
+        let keyword = document.getElementById('keyword').value;
+        google.script.run.withSuccessHandler(google.script.host.close)
+                          .withFailureHandler(google.script.host.close)
+                          .display_events_by_keyword(period, keyword);
+      }
+    </script>
+  </body>
+</html>

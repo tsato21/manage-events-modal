@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <form onsubmit="send_type(); return false;">
+    <div>
+      <label for="search_type">Search Type</label>
+      <select id = "search_type">
+        <option disabled selected>Choose a type</option>
+        <option value="period">By period</option>
+        <option value="keyword">By keyword</option>
+      </select>
+    </div>
+    
+    <button type="submit">Submit</button>
+    </form>
+    <script>
+      function send_type() {
+        let search_type = document.getElementById('search_type').value;
+        google.script.run.withSuccessHandler(google.script.host.close)
+                          .withFailureHandler(google.script.host.close)
+                          .choice_search_type(search_type);
+      }
+    </script>
+  </body>
+</html>
